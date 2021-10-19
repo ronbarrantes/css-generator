@@ -1,4 +1,8 @@
+##### PROJECT RELATED #####
+/dist
+/temp
 
+### END PROJECT RELATED ###
 # Created by https://www.toptal.com/developers/gitignore/api/vim,windows,macos,linux,visualstudiocode,sublimetext,node,git,python
 # Edit at https://www.toptal.com/developers/gitignore?templates=vim,windows,macos,linux,visualstudiocode,sublimetext,node,git,python
 
@@ -39,7 +43,8 @@
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*
