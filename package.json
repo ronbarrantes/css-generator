@@ -1,0 +1,19 @@
+{
+  "name": "css-generator",
+  "version": "0.0.1",
+  "description": "Extract tags, ids, and classes from an html file and make a .css file starter ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ronbarrantes/css-generator.git"
+  },
+  "author": "ronbarrantes@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ronbarrantes/css-generator/issues"
+  },
+  "homepage": "https://github.com/ronbarrantes/css-generator#readme"
+}
