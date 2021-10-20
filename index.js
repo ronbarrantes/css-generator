@@ -3,4 +3,4 @@ const output = process.argv[3] || 'AUTO-GENERATED.css'
 
 import { createCssFromHtml } from './src/lib/create-css-from-html.js'
 
-createCssFromHtml(input, output)
+createCssFromHtml()
