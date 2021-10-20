@@ -1,10 +1,11 @@
 import fs from 'fs/promises'
 import path from 'path'
 
-import { stripHtml, separateProps,  createCssTags } from './utils/htmlCssProcessor.js'
+// import { sample } from '../utils/pathParser.js'
+
+import { findHtmlTags, separateSelectors,  createCssTags } from '../utils/html-css-processor.js'
 
 export const createCssFromHtml = async (input, output) => {
-	console.log(input, output)
 	try{
 		if(!input || (path.extname(input) !== '.html' && path.extname(input) !== '.htm'))
 			throw new Error('Please use an .html file')
@@ -14,20 +15,14 @@ export const createCssFromHtml = async (input, output) => {
 	const htmlPath = path.join(filePaths, input)
 
 	const data = await fs.readFile(htmlPath)
-	console.log(data.toString())
 		const strData = data.toString()
-		const cssProps = stripHtml(strData)
-		const cssTags = separateProps(cssProps)
+		const cssProps = findHtmlTags(strData)
+		const cssTags = separateSelectors(cssProps)
 		const textTags = createCssTags(cssTags)
 
 		const cssOutputPath = path.join(filePaths, output)
-		console.log(cssOutputPath)
 		await fs.writeFile(cssOutputPath, textTags)
-		console.log('ALL DONE')
-
-
-
-	
+		console.log('ALL DONE')	
 	} catch(err){
 		console.error('ERROR:', err.message)
 	}

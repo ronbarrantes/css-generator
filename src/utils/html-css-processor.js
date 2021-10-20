@@ -1,11 +1,11 @@
-export const stripHtml = (htmlString) => {
+export const findHtmlTags = (htmlString) => {
 	let isLogging = false
-	const stylesProps = new Set()
+	const tagList = new Set()
 	let strLine = ''
 
 	for(let idx = 0; idx < htmlString.length; idx++) {
 		const char = htmlString[idx]
-9
+
 		if(!isLogging){
 			if(char === '<' && htmlString[idx + 1] !== '/'){
 				isLogging = true
@@ -14,38 +14,37 @@ export const stripHtml = (htmlString) => {
 			if(char === '>'){
 				isLogging = false
 				if(strLine.length !== 0){
-					stylesProps.add(strLine)
+					tagList.add(strLine)
 					strLine = ''
 				}
 				continue
 			}
 
 			if(char === `'`)
-				strLine += `"`
+				strLine += `"` // Makes all quotes the same
 			else if(char === '=')
-				strLine += ' '
+				strLine += ' ' // Remove '=' (For quality of life later)
 			else
 				strLine += char
 		}
 	}
 
-	return stylesProps
+	return tagList
 }
 
-export const separateProps = (data) => {
-	const propsMap = new Map([
+export const separateSelectors = (data) => {
+	const selectors = new Map([
 		['tag', new Set()],
 		['id', new Set()],
 		['class', new Set()],
 	])
 
-	// REMOVE EVERYTHING BEFORE THE BODY
+	// remove all selectors before the body
 	let dataArr = [...data]
 	const bodyIdx = dataArr.indexOf('body')
 	dataArr = dataArr.slice(bodyIdx)
 
 	for(let line of dataArr){
-		// CLEANUP
 		const lineArr = line
 			.split(/\s/)
 			.filter(word => word.length > 0)
@@ -53,13 +52,13 @@ export const separateProps = (data) => {
 		const tag = lineArr.shift()
 		line = lineArr.join(' ')
 
-		// GET THE TAGS
-		propsMap.get('tag').add(tag)
+		// Add tag
+		selectors.get('tag').add(tag)
 
 		if(line.length === 0)
 			continue
 
-		// GET IDs OR CLASSES
+		// Add id and class
 		let idOrClass = ''
 		let prop = ''
 		let isLogging = false
@@ -73,24 +72,30 @@ export const separateProps = (data) => {
 					prop = ''
 					continue
 				}
+
 				idOrClass += char
+
 			} else {
 				if(char === '"'){
 					isLogging = false
 					if(idOrClass === 'id')
-						propsMap.get('id').add(prop)
+						selectors.get('id').add(prop)
+
 					if(idOrClass === 'class')
-						prop.split(' ').forEach(item => propsMap.get('class').add(item))
+						prop.split(' ').forEach(item => selectors.get('class').add(item))
+
 					idOrClass = ''
 					continue
 				}
+
 				prop += char
 			}
 		}
 	}
-	// REMOVE THE PESKY SCRIPT TAG
-	propsMap.get('tag').delete('script')
-	return propsMap
+	
+	// Remove pesky script tag
+	selectors.get('tag').delete('script')
+	return selectors
 }
 
 export const createCssTags = (tagMap) => {

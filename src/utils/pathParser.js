@@ -1,2 +1,0 @@
-// USE THIS
-process.cwd()
