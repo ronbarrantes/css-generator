@@ -2,19 +2,20 @@
   "name": "csscreator",
   "version": "0.0.1",
   "description": "Extract tags, ids, and classes from an html file and make a .css file starter ",
-  "main": "index.js",
   "type": "module",
+  "main": "./bin/csscreator.js",
+  "bin": "./bin/csscreator.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ronbarrantes/css-generator.git"
+    "url": "git+https://github.com/ronbarrantes/csscreator.git"
   },
   "author": "ronbarrantes@gmail.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ronbarrantes/css-generator/issues"
+    "url": "https://github.com/ronbarrantes/csscreator/issues"
   },
-  "homepage": "https://github.com/ronbarrantes/css-generator#readme"
+  "homepage": "https://github.com/ronbarrantes/csscreator#readme"
 }
