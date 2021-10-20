@@ -2,7 +2,6 @@
 Creates a basic CSS "boilerplate" file based on all the tags, ids, and classes from a given HTML document.
 
 ## Installation and Use
-
 To install it run the command
 `npm i -D csscreator`
 
@@ -12,7 +11,6 @@ To use it use the command
 The `csscreator` command requires an `--input-file` flag to work. The value expected by the input file must be of extension `.html` with valid HTML
 
 ## Examples
-
 If you have a an HTML doument that looks like this
 
 ```html
@@ -89,3 +87,5 @@ footer {}
 
 ```
 
+## About test
+I'll write some test later, this is just a proof of concept
