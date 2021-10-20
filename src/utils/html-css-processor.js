@@ -92,7 +92,7 @@ export const separateSelectors = (data) => {
 			}
 		}
 	}
-	
+
 	// Remove pesky script tag
 	selectors.get('tag').delete('script')
 	return selectors
