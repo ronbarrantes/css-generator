@@ -1,5 +1,5 @@
 {
-  "name": "css-generator",
+  "name": "csscreator",
   "version": "0.0.1",
   "description": "Extract tags, ids, and classes from an html file and make a .css file starter ",
   "main": "index.js",
