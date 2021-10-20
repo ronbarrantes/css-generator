@@ -1,6 +1,6 @@
 {
   "name": "csscreator",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Extract tags, ids, and classes from an html file and make a .css file starter ",
   "type": "module",
   "main": "./bin/csscreator.js",
