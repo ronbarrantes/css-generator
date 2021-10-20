@@ -98,7 +98,7 @@ export const separateSelectors = (data) => {
 	return selectors
 }
 
-export const createCssTags = (tagMap) => {
+export const stringifySelectors = (tagMap) => {
 	let text = ''
 	text+='/*** TAGS ***/\n'
 	tagMap.get('tag').forEach(item => text +=`${item} {}\n`)
