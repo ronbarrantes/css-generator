@@ -6,7 +6,9 @@
   "main": "./bin/csscreator.js",
   "bin": "./bin/csscreator.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha",
+    "test:watch": "mocha -w --recursive", 
+    "coverage": "nyc npm run test"
   },
   "repository": {
     "type": "git",
@@ -17,5 +19,10 @@
   "bugs": {
     "url": "https://github.com/ronbarrantes/csscreator/issues"
   },
-  "homepage": "https://github.com/ronbarrantes/csscreator#readme"
+  "homepage": "https://github.com/ronbarrantes/csscreator#readme",
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^9.1.3",
+    "nyc": "^15.1.0"
+  }
 }
