@@ -1,7 +1,7 @@
 
 ##### PROJECT RELATED #####
 /dist
-/temp
+**/temp
 
 ### END PROJECT RELATED ###
 
