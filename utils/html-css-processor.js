@@ -3,6 +3,11 @@ export const findHtmlTags = (htmlString) => {
 	const tagList = new Set()
 	let strLine = ''
 
+	console.log('here')
+
+	if(!htmlString)
+		throw new Error('Valid HTML must be passed in the form of text')
+
 	for(let idx = 0; idx < htmlString.length; idx++) {
 		const char = htmlString[idx]
 
